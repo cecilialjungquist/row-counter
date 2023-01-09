@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --bg-color: #547561;
+    --bg-color-secondary: #141D17;
+    --text-color: #141D17;
+    --increase-btn-bg: #61a941;
+    --decrease-btn-bg: #6b1e1e;
+    --save-btn-bg: #09040F;
+}
+
+.wrapper {
+    min-height: 100vh;
+    background-color: #547561;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/jean-marc-vieregge-cDKqFb-NOZc-unsplash.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    opacity: 0.6;
+}
+
+h1 {
+    color: white;
+    font-size: 6rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    text-align: right;
+    z-index: 1;
+}
+
+.container {
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px rgba(2, 17, 1, 0.161);
+    z-index: 1;
+}
+
+.info-text {
+    text-align: center;
+    line-height: 150%;
+    color: var(--text-color);
+}
+
+.container__section {
+    display: flex;
+    gap: 3rem;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.counter__div {
+    background-color: var(--bg-color-secondary);
+    color: white;
+    padding: 1.5rem;
+    min-width: 9rem;
+    display: flex;
+    justify-content: center;
+    border-radius: .2rem;
+    font-size: 2rem;
+}
+
+.btn-section {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.small-btn {
+    width: 4rem;
+    height: 4rem;
+    appearance: none;
+    border: none;
+    border-radius: .8rem;
+    color: white;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.add-10-btn {
+    background-color: rgb(63, 78, 61);
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: .4em;
+    appearance: none;
+    border: none;
+    border-radius: .8rem;
+    color: white;
+}
+.add-10-btn:hover {
+    background-color: rgb(36, 41, 35);
+    cursor: pointer;
+}
+.add-10-btn:active {
+    background-color: rgb(63, 78, 61);
+}
+
+.add-btn {
+    background-color: var(--increase-btn-bg);
+}
+.add-btn:hover {
+    background-color: #1e3515;
+    cursor: pointer;
+}
+.add-btn:active {
+    background-color: var(--increase-btn-bg);
+}
+
+.remove-btn {
+    background-color: var(--decrease-btn-bg);
+}
+.remove-btn:hover {
+    background-color: #3a0e0e;
+    cursor: pointer;
+}
+.remove-btn:active {
+    background-color: var(--decrease-btn-bg);
+}
+
+.big-btn {
+    appearance: none;
+    border: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    width: 100%;
+    color: var(--text-color);
+    background-color: rgb(200, 177, 181);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0px 3px 1px rgba(25, 42, 10, 0.332);
+}
+.big-btn:hover {
+    box-shadow: inset 0px 3px 1px rgba(17, 28, 7, 0.379);
+    color: white;
+}
+.big-btn:active {
+    background-color: rgb(248, 198, 206);
+}
+
+
+@media screen and (max-width: 1112px) {
+    h1 {
+        bottom: 0;
+        text-align: left;
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 686px) {
+    .wrapper::before {
+        background-size: cover;
+    }
+    h1 {
+        top: 0;
+        font-size: 2rem;
+    }
+}
