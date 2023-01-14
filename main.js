@@ -15,45 +15,65 @@ counterStitch.innerHTML = stitches;
 // Skapa funktioner/eventlyssnare som adderar +1 respektive -1
 let decrRowBtn = document.getElementById('decrease-row');
 decrRowBtn.addEventListener('click', function() {
-    rows -= 1;
+    rows = decrAmount(rows);
     counterRow.innerHTML = rows;
 });
 
 let incrRowBtn = document.getElementById('increase-row');
 incrRowBtn.addEventListener('click', function() {
-    rows += 1;
+    rows = incrAmount(rows, 1);
     counterRow.innerHTML = rows;
 });
 
 let decrStitchBtn = document.getElementById('decrease-stitch');
 decrStitchBtn.addEventListener('click', function() {
-    stitches -= 1;
+    stitches = decrAmount(stitches);
     counterStitch.innerHTML = stitches;
 });
 
 let incrStitchBtn = document.getElementById('increase-stitch');
 incrStitchBtn.addEventListener('click', function() {
-    stitches += 1;
+    stitches = incrAmount(stitches, 1);
     counterStitch.innerHTML = stitches;
 });
 
 // Skapa funktioner/eventlyssnare som adderar +10
 let incr10Rows = document.getElementById('increase-10-row');
 incr10Rows.addEventListener('click', function() {
-    rows += 10;
+    rows = incrAmount(rows, 10)
     counterRow.innerHTML = rows;
 });
 
 let incr10Stitches = document.getElementById('increase-10-stitch');
 incr10Stitches.addEventListener('click', function() {
-    stitches += 10;
+    stitches = incrAmount(stitches, 10);
     counterStitch.innerHTML = stitches;
 });
 
 // Skapa en spara-knapp som skriver ut row och stitch på skärmen
 let savedRows = document.getElementById('saved-rows');
-
 let saveBtn = document.getElementById('save-btn');
+
 saveBtn.addEventListener('click', function() {
-    savedRows.innerHTML += '<br>Row: ' + rows + " Stitch: " + stitches;
+    let inputComment = document.querySelector('.input').value;
+
+    savedRows.innerHTML += `<br>Row: ${rows} Stitch: ${stitches}
+                            <br>Comment: ${inputComment}`;
+
+    // Denna funktionen ska också kunna tömma kommentarsfältet!
 });
+
+function incrAmount(amount, howMany) {
+    if (howMany === 1) {
+        return amount += 1;
+    } else {
+        return amount += 10;
+    }
+}
+
+function decrAmount(amount) {
+
+    return amount -= 1;
+}
+
+
