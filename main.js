@@ -53,14 +53,15 @@ incr10Stitches.addEventListener('click', function() {
 // Skapa en spara-knapp som skriver ut row och stitch på skärmen
 let savedRows = document.getElementById('saved-rows');
 let saveBtn = document.getElementById('save-btn');
+let inputComment = document.querySelector('.input').value;
 
 saveBtn.addEventListener('click', function() {
-    let inputComment = document.querySelector('.input').value;
 
     savedRows.innerHTML += `<br>Row: ${rows} Stitch: ${stitches}
                             <br>Comment: ${inputComment}`;
 
     // Denna funktionen ska också kunna tömma kommentarsfältet!
+
 });
 
 function incrAmount(amount, howMany) {
@@ -75,5 +76,4 @@ function decrAmount(amount) {
 
     return amount -= 1;
 }
-
 
