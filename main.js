@@ -1,5 +1,4 @@
 
-
 // Skapa ett startvärde = 0
 let rows = 0;
 let stitches = 0;
@@ -51,17 +50,31 @@ incr10Stitches.addEventListener('click', function() {
 });
 
 // Skapa en spara-knapp som skriver ut row och stitch på skärmen
-let savedRows = document.getElementById('saved-rows');
+let saveList = document.getElementById('save-list');
 let saveBtn = document.getElementById('save-btn');
-let inputComment = document.querySelector('.input').value;
+let inputComment = document.querySelector('.input');
+
+
 
 saveBtn.addEventListener('click', function() {
+    let displayList = document.createElement('ul');
+    displayList.classList.add('list');
 
-    savedRows.innerHTML += `<br>Row: ${rows} Stitch: ${stitches}
-                            <br>Comment: ${inputComment}`;
+    let newList = {
+        row: 'Row: ' + rows,
+        stitch: 'Stich: '+ stitches,
+        comment: 'Comment: ' + inputComment.value
+    };
 
-    // Denna funktionen ska också kunna tömma kommentarsfältet!
+    for (const key in newList) {
+        let listItem = document.createElement('li');
+        listItem.classList.add('list__item');
+        listItem.innerHTML = newList[key];
+        displayList.appendChild(listItem);
+    }
 
+    saveList.appendChild(displayList);
+    inputComment.value = '';
 });
 
 function incrAmount(amount, howMany) {
